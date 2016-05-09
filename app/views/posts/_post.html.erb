@@ -1,0 +1,7 @@
+<% if logged_in? %>
+  <%= post.user.email %>
+<% else %>
+  secret
+<% end %>
+<%= post.title %>
+<%= post.content %>

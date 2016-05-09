@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MembersOnly</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+<% if current_user.nil? %>
+  <%= link_to 'Sign in', sign_in_path %>
+<% else %>
+  <%= link_to 'Sign out', sign_out_path, method: :delete %>
+<% end %>
+</header>
+<% flash.each do |f_type, f_message| %>
+  <div><%= f_message %></div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
